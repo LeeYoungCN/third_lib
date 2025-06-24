@@ -1,0 +1,9 @@
+buildcache
+install
+build
+.cache
+.idea
+.vs
+out
+external
+*.pyc
