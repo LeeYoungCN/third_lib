@@ -1,5 +1,6 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 4.0)
 project(LeetCode)
+message(STATUS "CMake version: ${CMAKE_VERSION}")
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_C_STANDARD 99)
@@ -14,7 +15,6 @@ if (MSVC)
     set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} /MD")
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MDd")
     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MD")
-    add_compile_options(/WX /permissive- /utf-8)
 endif()
 
 if(CMAKE_COMPILER_IS_GNUCXX OR (${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang"))
@@ -33,15 +33,6 @@ if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug CACHE STRING "Default CMAKE_BUILD_TYPE Debug" FORCE)
 endif()
 
-if (NOT PROBLEM_PREFIX)
-    set(PROBLEM_PREFIX all CACHE STRING "Default PROBLEM_PREFIX all" FORCE)
-endif()
-
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-    add_compile_definitions(DEBUG_MODE)
-else()
-    add_compile_definitions(DNEBUG_MODE)
-endif()
 
 if (${CMAKE_INSTALL_PREFIX} STREQUAL "C:/Program Files (x86)/LeetCode" OR ${CMAKE_INSTALL_PREFIX} STREQUAL "/usr/local")
     set(CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}/out/install/${CMAKE_PRESET}" CACHE PATH "Default CMAKE_INSTALL_PREFIX out/install/${CMAKE_PRESET}" FORCE)
@@ -51,5 +42,14 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
+set(EXTERNAL_DIR ${CMAKE_SOURCE_DIR}/out)
+set(EXTERNAL_CODE_DIR ${CMAKE_SOURCE_DIR}/code)
+set(EXTERNAL_STAMP_DIR ${CMAKE_SOURCE_DIR}/stamp)
+set(EXTERNAL_PREFIX_DIR ${EXTERNAL_DIR}/external_prefix/${CMAKE_PRESET})
+set(EXTERNAL_BUILD_DIR ${EXTERNAL_DIR}/external_build/${CMAKE_PRESET})
+set(EXTERNAL_INSTALL_DIR ${CMAKE_INSTALL_PREFIX})
+
 include(${CMAKE_SOURCE_DIR}/cmake/cmake_configure_info.cmake)
-include(${CMAKE_SOURCE_DIR}/cmake/fetch_content.cmake)
+include(${CMAKE_SOURCE_DIR}/cmake/external_project/googletest.cmake)
+include(${CMAKE_SOURCE_DIR}/cmake/external_project/cjson.cmake)
+

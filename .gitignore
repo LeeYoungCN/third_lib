@@ -6,4 +6,6 @@ build
 .vs
 out
 external
+code
+stamp
 *.pyc
