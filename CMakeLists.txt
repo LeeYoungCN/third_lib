@@ -44,12 +44,16 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
 set(EXTERNAL_DIR ${CMAKE_SOURCE_DIR}/out)
 set(EXTERNAL_CODE_DIR ${CMAKE_SOURCE_DIR}/code)
-set(EXTERNAL_STAMP_DIR ${CMAKE_SOURCE_DIR}/stamp)
+set(EXTERNAL_STAMP_DIR ${CMAKE_SOURCE_DIR}/stamp/${CMAKE_PRESET})
 set(EXTERNAL_PREFIX_DIR ${EXTERNAL_DIR}/external_prefix/${CMAKE_PRESET})
 set(EXTERNAL_BUILD_DIR ${EXTERNAL_DIR}/external_build/${CMAKE_PRESET})
 set(EXTERNAL_INSTALL_DIR ${CMAKE_INSTALL_PREFIX})
 
 include(${CMAKE_SOURCE_DIR}/cmake/cmake_configure_info.cmake)
+
 include(${CMAKE_SOURCE_DIR}/cmake/external_project/googletest.cmake)
 include(${CMAKE_SOURCE_DIR}/cmake/external_project/cjson.cmake)
 
+if (MINGW OR CMAKE_COMPILER_IS_GNUCXX)
+    include(${CMAKE_SOURCE_DIR}/cmake/external_project/mockcpp.cmake)
+endif()
