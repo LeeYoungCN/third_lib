@@ -21,7 +21,6 @@ message(STATUS "CMAKE_SIZEOF_VOID_P:                    ${CMAKE_SIZEOF_VOID_P}")
 message(STATUS "ARCHITECTURE:                           ${ARCHITECTURE}")
 
 message(STATUS "CMAKE_BUILD_TYPE:                       ${CMAKE_BUILD_TYPE}")
-message(STATUS "PROBLEM_PREFIX:                         ${PROBLEM_PREFIX}")
 message(STATUS "CMAKE_INSTALL_PREFIX:                   ${CMAKE_INSTALL_PREFIX}")
 
 message(STATUS "CMAKE_C_FLAGS_DEBUG:                    ${CMAKE_C_FLAGS_DEBUG}")
@@ -38,7 +37,6 @@ endif()
 
 file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_configure_file=\"${CMAKE_CONFIGURE_FILE}\"\n")
 file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_preset=\"${CMAKE_PRESET}\"\n")
-file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_problem_prefix=\"${PROBLEM_PREFIX}\"\n")
 file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_build_type=\"${CMAKE_BUILD_TYPE}\"\n")
 file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_generator=\"${CMAKE_GENERATOR}\"\n")
 file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_toolchain_file=\"${CMAKE_TOOLCHAIN_FILE}\"\n")
