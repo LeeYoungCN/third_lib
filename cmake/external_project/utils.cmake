@@ -11,6 +11,13 @@ set(UTILS_STAMP_DIR     ${EXTERNAL_STAMP_DIR}/${UTILS_NAME})
 set(UTILS_GIT_URL "https://github.com/LeeYoungCN/utils.git")
 set(UTILS_GIT_TAG "master")
 
+set(UTILS_CONFIG_FILE ${EXTERNAL_CONFIG_SOURCE_DIR}/${UTILS_NAME}.cmake)
+set(UTILS_INSTALL_FILE ${UTILS_NAME}.cmake)
+
+install(FILES ${UTILS_CONFIG_FILE}
+        DESTINATION ${EXTERNAL_CONFIG_INSTALL_DIR}
+        RENAME ${UTILS_INSTALL_FILE})
+
 if (EXISTS ${UTILS_SRC_DIR})
     ExternalProject_Add(
         ${UTILS_NAME}

@@ -11,6 +11,12 @@ set(GTEST_STAMP_DIR     ${EXTERNAL_STAMP_DIR}/${GTEST_NAME})
 set(GTEST_GIT_URL "https://github.com/google/googletest.git")
 set(GTEST_GIT_TAG "release-1.12.1")
 
+set(GTEST_CONFIG_FILE ${EXTERNAL_CONFIG_SOURCE_DIR}/${GTEST_NAME}.cmake)
+set(GTEST_INSTALL_FILE ${GTEST_NAME}.cmake)
+install(FILES ${GTEST_CONFIG_FILE}
+        DESTINATION ${EXTERNAL_CONFIG_INSTALL_DIR}
+        RENAME ${GTEST_INSTALL_FILE})
+
 if (EXISTS ${GTEST_SRC_DIR})
     ExternalProject_Add(
         ${GTEST_NAME}

@@ -238,7 +238,8 @@
             "displayName": "MSVC x64 Debug Build",
             "description": "Build the MSVC x64 Debug target.",
             "targets": [
-                "all"
+                "all",
+                "install"
             ],
             "jobs": 4
         },
@@ -248,7 +249,8 @@
             "displayName": "MSVC x64 Release Build",
             "description": "Build the MSVC x64 Release target.",
             "targets": [
-                "all"
+                "all",
+                "install"
             ],
             "jobs": 4
         },
@@ -258,7 +260,8 @@
             "displayName": "MSVC x86 Debug Build",
             "description": "Build the MSVC x86 Debug target.",
             "targets": [
-                "all"
+                "all",
+                "install"
             ],
             "jobs": 4
         },
@@ -268,7 +271,8 @@
             "displayName": "MSVC x86 Release Build",
             "description": "Build the MSVC x86 Release target.",
             "targets": [
-                "all"
+                "all",
+                "install"
             ],
             "jobs": 4
         },
@@ -278,7 +282,8 @@
             "displayName": "Clang Debug Build",
             "description": "Build the Clang Debug target.",
             "targets": [
-                "all"
+                "all",
+                "install"
             ],
             "jobs": 4
         },
@@ -288,7 +293,8 @@
             "displayName": "Clang Release Build",
             "description": "Build the Clang Release target.",
             "targets": [
-                "all"
+                "all",
+                "install"
             ],
             "jobs": 4
         },
@@ -298,7 +304,8 @@
             "displayName": "MinGW Debug Build",
             "description": "Build the MinGW Debug target.",
             "targets": [
-                "all"
+                "all",
+                "install"
             ],
             "jobs": 4
         },
@@ -308,7 +315,8 @@
             "displayName": "MinGW Release Build",
             "description": "Build the MinGW Release target.",
             "targets": [
-                "all"
+                "all",
+                "install"
             ],
             "jobs": 4
         },
@@ -318,7 +326,8 @@
             "displayName": "Linux Clang Debug Build",
             "description": "Build the Linux Clang Debug target.",
             "targets": [
-                "all"
+                "all",
+                "install"
             ],
             "jobs": 4
         },
@@ -328,7 +337,8 @@
             "displayName": "Linux Clang Release Build",
             "description": "Build the Linux Clang Release target.",
             "targets": [
-                "all"
+                "all",
+                "install"
             ],
             "jobs": 4
         },
@@ -338,7 +348,8 @@
             "displayName": "Linux GNU Debug Build",
             "description": "Build the Linux GNU Debug target.",
             "targets": [
-                "all"
+                "all",
+                "install"
             ],
             "jobs": 4
         },
@@ -348,7 +359,8 @@
             "displayName": "Linux GNU Release Build",
             "description": "Build the Linux GNU Release target.",
             "targets": [
-                "all"
+                "all",
+                "install"
             ],
             "jobs": 4
         }
