@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 4.0)
+cmake_minimum_required(VERSION 3.14)
 project(LeetCode)
 message(STATUS "CMake version: ${CMAKE_VERSION}")
 
@@ -57,6 +57,6 @@ include(${EXTERNAL_CFG}/utils.cmake)
 include(${EXTERNAL_CFG}/googletest.cmake)
 include(${EXTERNAL_CFG}/cjson.cmake)
 
-if (MINGW OR CMAKE_COMPILER_IS_GNUCXX)
+if (NOT (WIN32 AND NOT MINGW))
     include(${EXTERNAL_CFG}/mockcpp.cmake)
 endif()
