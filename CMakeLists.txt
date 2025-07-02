@@ -34,8 +34,8 @@ if (NOT CMAKE_BUILD_TYPE)
 endif()
 
 
-if (${CMAKE_INSTALL_PREFIX} STREQUAL "C:/Program Files (x86)/LeetCode" OR ${CMAKE_INSTALL_PREFIX} STREQUAL "/usr/local")
-    set(CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}/out/install/${CMAKE_PRESET}" CACHE PATH "Default CMAKE_INSTALL_PREFIX out/install/${CMAKE_PRESET}" FORCE)
+if (${CMAKE_INSTALL_PREFIX} STREQUAL "C:/Program Files (x86)/${PROJECT_NAME}" OR ${CMAKE_INSTALL_PREFIX} STREQUAL "/usr/local")
+    set(CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}/release/${CMAKE_PRESET}" CACHE PATH "Default CMAKE_INSTALL_PREFIX out/install/${CMAKE_PRESET}" FORCE)
 endif()
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
@@ -51,9 +51,12 @@ set(EXTERNAL_INSTALL_DIR ${CMAKE_INSTALL_PREFIX})
 
 include(${CMAKE_SOURCE_DIR}/cmake/cmake_configure_info.cmake)
 
-include(${CMAKE_SOURCE_DIR}/cmake/external_project/googletest.cmake)
-include(${CMAKE_SOURCE_DIR}/cmake/external_project/cjson.cmake)
+set(EXTERNAL_CFG ${CMAKE_SOURCE_DIR}/cmake/external_project)
+
+include(${EXTERNAL_CFG}/utils.cmake)
+include(${EXTERNAL_CFG}/googletest.cmake)
+include(${EXTERNAL_CFG}/cjson.cmake)
 
 if (MINGW OR CMAKE_COMPILER_IS_GNUCXX)
-    include(${CMAKE_SOURCE_DIR}/cmake/external_project/mockcpp.cmake)
+    include(${EXTERNAL_CFG}/mockcpp.cmake)
 endif()
