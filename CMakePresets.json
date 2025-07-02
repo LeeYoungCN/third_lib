@@ -8,7 +8,6 @@
             "installDir": "${sourceDir}/release/${presetName}",
             "description": "Project base config.",
             "cacheVariables": {
-                "PROBLEM_PREFIX": "all",
                 "CMAKE_PRESET": "${presetName}"
             }
         },
