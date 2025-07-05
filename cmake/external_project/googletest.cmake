@@ -33,6 +33,7 @@ if (EXISTS ${GTEST_SRC_DIR})
             -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
             -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
             -DCMAKE_POLICY_VERSION_MINIMUM=3.10
+            -Dgtest_force_shared_crt=ON
     )
 else()
     ExternalProject_Add(
@@ -53,6 +54,7 @@ else()
             -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
             -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
             -DCMAKE_POLICY_VERSION_MINIMUM=3.10
+            -Dgtest_force_shared_crt=ON
 
         UPDATE_COMMAND ""
     )

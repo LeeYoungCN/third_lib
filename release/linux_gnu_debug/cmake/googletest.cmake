@@ -1,7 +1,5 @@
 set(CMAKE_THIRD_PARTY_PATH "${CMAKE_CURRENT_LIST_DIR}/.." ABSOLUTE)
 
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-
 set(GTEST_PATH ${CMAKE_THIRD_PARTY_PATH}/googletest)
 set(GTEST_INC_PATH ${GTEST_PATH}/include)
 set(GTEST_LIB_PATH ${GTEST_PATH}/lib)
