@@ -4,10 +4,21 @@ else()
     set(ARCHITECTURE "x86")
 endif()
 
+set(CMAKE_CONFIGURE_FILE  ${CMAKE_BINARY_DIR}/cmake_configure.conf)
+set(CMAKE_CONFIGURE_SRC   ${CMAKE_CURRENT_LIST_DIR}/cmake_configure.conf.in)
+
+configure_file(
+    "${CMAKE_CONFIGURE_SRC}"
+    "${CMAKE_CONFIGURE_FILE}"
+)
+
+message(STATUS "CMAKE_CONFIGURE_FILE:                   ${CMAKE_CONFIGURE_FILE}")
 message(STATUS "CMAKE_PRESET:                           ${CMAKE_PRESET}")
 message(STATUS "CMAKE_SYSTEM_NAME:                      ${CMAKE_SYSTEM_NAME}")
 message(STATUS "CMAKE_SYSTEM_PROCESSOR:                 ${CMAKE_SYSTEM_PROCESSOR}")
+message(STATUS "CMAKE_HOST_SYSTEM_PROCESSOR_COUNT:      ${CMAKE_HOST_SYSTEM_PROCESSOR_COUNT}")
 
+message(STATUS "CMAKE_VERSION:                          ${CMAKE_VERSION}")
 message(STATUS "CMAKE_C_COMPILER:                       ${CMAKE_C_COMPILER}")
 message(STATUS "CMAKE_C_COMPILER_ID:                    ${CMAKE_C_COMPILER_ID}")
 message(STATUS "CMAKE_C_COMPILER_VERSION:               ${CMAKE_C_COMPILER_VERSION}")
@@ -27,34 +38,3 @@ message(STATUS "CMAKE_C_FLAGS_DEBUG:                    ${CMAKE_C_FLAGS_DEBUG}")
 message(STATUS "CMAKE_CXX_FLAGS_DEBUG:                  ${CMAKE_CXX_FLAGS_DEBUG}")
 message(STATUS "CMAKE_C_FLAGS_RELEASE:                  ${CMAKE_C_FLAGS_RELEASE}")
 message(STATUS "CMAKE_CXX_FLAGS_RELEASE:                ${CMAKE_CXX_FLAGS_RELEASE}")
-
-set(CMAKE_CONFIGURE_FILE  ${CMAKE_BINARY_DIR}/cmake_configure.conf)
-
-message(STATUS "CMAKE_CONFIGURE_FILE:                   ${CMAKE_CONFIGURE_FILE}")
-if(EXISTS "${CMAKE_CONFIGURE_FILE}")
-    file(REMOVE "${CMAKE_CONFIGURE_FILE}")
-endif()
-
-file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_configure_file=\"${CMAKE_CONFIGURE_FILE}\"\n")
-file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_preset=\"${CMAKE_PRESET}\"\n")
-file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_build_type=\"${CMAKE_BUILD_TYPE}\"\n")
-file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_generator=\"${CMAKE_GENERATOR}\"\n")
-file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_toolchain_file=\"${CMAKE_TOOLCHAIN_FILE}\"\n")
-file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_system_name=\"${CMAKE_SYSTEM_NAME}\"\n")
-file(APPEND ${CMAKE_CONFIGURE_FILE} "ARCHITECTURE=\"${ARCHITECTURE}\"\n")
-file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_c_compiler=\"${CMAKE_C_COMPILER}\"\n")
-file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_c_compiler_id=\"${CMAKE_C_COMPILER_ID}\"\n")
-file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_c_compiler_version=\"${CMAKE_C_COMPILER_VERSION}\"\n")
-file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_c_flags_debug=\"${CMAKE_C_FLAGS_DEBUG}\"\n")
-file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_c_flags_release=\"${CMAKE_C_FLAGS_RELEASE}\"\n")
-file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_cxx_compiler=\"${CMAKE_CXX_COMPILER}\"\n")
-file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_cxx_compiler_id=\"${CMAKE_CXX_COMPILER_ID}\"\n")
-file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_cxx_compiler_version=\"${CMAKE_CXX_COMPILER_VERSION}\"\n")
-file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_cxx_flags_debug=\"${CMAKE_CXX_FLAGS_DEBUG}\"\n")
-file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_cxx_flags_release=\"${CMAKE_CXX_FLAGS_RELEASE}\"\n")
-file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_system_processor=\"${CMAKE_SYSTEM_PROCESSOR}\"\n")
-file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_install_dir=\"${CMAKE_INSTALL_PREFIX}\"\n")
-file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_source_dir=\"${CMAKE_SOURCE_DIR}\"\n")
-file(APPEND ${CMAKE_CONFIGURE_FILE} "cmake_build_dir=\"${CMAKE_BINARY_DIR}\"\n")
-file(APPEND ${CMAKE_CONFIGURE_FILE} "env_param_file=\"${ENV_PARAM_FILE}\"\n")
-
