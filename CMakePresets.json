@@ -363,6 +363,28 @@
                 "install"
             ],
             "jobs": 4
+        },
+        {
+            "name": "darwin_clang_debug_build",
+            "configurePreset": "darwin_clang_debug",
+            "displayName": "Darwin Clang Debug Build",
+            "description": "Build the Darwin Clang Debug target.",
+            "targets": [
+                "all",
+                "install"
+            ],
+            "jobs": 4
+        },
+        {
+            "name": "darwin_clang_release_build",
+            "configurePreset": "darwin_clang_release",
+            "displayName": "Darwin Clang Release Build",
+            "description": "Build the Darwin Clang Release target.",
+            "targets": [
+                "all",
+                "install"
+            ],
+            "jobs": 4
         }
     ]
 }

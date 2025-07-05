@@ -1,0 +1,9 @@
+libdir=/Users/xuyingying/Code_LY/third_lib/release/darwin_clang_debug/googletest/lib
+includedir=/Users/xuyingying/Code_LY/third_lib/release/darwin_clang_debug/googletest/include
+
+Name: gtest
+Description: GoogleTest (without main() function)
+Version: 1.12.1
+URL: https://github.com/google/googletest
+Libs: -L${libdir} -lgtest 
+Cflags: -I${includedir} -DGTEST_HAS_PTHREAD=1
